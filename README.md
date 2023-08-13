@@ -1,18 +1,18 @@
 # fluttercourse
 
-topic:
-text
-stateless
-stateful
-container
-textstyle
-color
-navigation
-splashscreen
-button
-  elevated button
-  outlined button
-  text button
-row
-column
-padding
+topic:<br />
+text<br />
+stateless<br />
+stateful<br />
+container<br />
+textstyle<br />
+color<br />
+navigation<br />
+splashscreen<br />
+button<br />
+  elevated b<br />utton
+  outlined button<br />
+  text button<br />
+row<br />
+column<br />
+padding<br />
