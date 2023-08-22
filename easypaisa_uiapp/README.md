@@ -1,16 +1,10 @@
 # easypaisa_uiapp
 
-A new Flutter project.
+## Gridview.count
+![Untitled design (1)](https://github.com/HassaanAhmed60211/fluttercourse/assets/106430586/c89eb7c4-90e9-4312-b548-dd02d4332de0)
 
-## Getting Started
+## Gridview.extent
+![Untitled design](https://github.com/HassaanAhmed60211/fluttercourse/assets/106430586/53153a95-de5c-4a04-b871-fdc997a519e9)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Gridview.Builder and Circular Avatar and Wrap
+![Untitled design (2)](https://github.com/HassaanAhmed60211/fluttercourse/assets/106430586/d096d31e-5f4d-4dad-a4a4-c65bd53e7d01)
