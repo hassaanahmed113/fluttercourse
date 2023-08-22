@@ -10,7 +10,7 @@ color<br />
 navigation<br />
 splashscreen<br />
 button<br />
-  elevated buttton<br />utton
+  elevated buttton<br />
   outlined button<br />
   text button<br />
 row<br />
