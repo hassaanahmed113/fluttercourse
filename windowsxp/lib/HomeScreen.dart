@@ -13,12 +13,17 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Stack(
         children: [
+          Align(
+              alignment: Alignment.center,
+              child: Container(
+                child: Image.asset("assets/winxpblisshero_0.png"),
+              )),
           Positioned(
             bottom: 145,
             left: 565,
             child: Text(
               "Microsoft",
-              style: TextStyle(color: Colors.black, fontSize: 33),
+              style: TextStyle(color: Colors.white, fontSize: 33),
             ),
           ),
           Positioned(
@@ -27,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Text(
               "Windows",
               style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 100),
             ),
