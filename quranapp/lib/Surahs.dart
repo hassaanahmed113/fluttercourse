@@ -16,70 +16,75 @@ class _SurahsState extends State<Surahs> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(12.0),
-        child: Column(
-          children: [
-            Center(
-              child: Container(
-                width: double.infinity,
-                color: Colors.orange[900],
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    "${quran.getSurahNameArabic(widget.indexsurah)}",
-                    style: TextStyle(
-                        fontFamily: 'arabicfont',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
-                        color: Colors.white),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Expanded(
-              child: ListView.separated(
-                separatorBuilder: (context, index) {
-                  return Divider(
-                    color: Colors.white,
-                    height: 3,
-                    thickness: 2,
-                  );
-                },
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Surahs(
-                              indexsurah: index + 1,
-                            ),
-                          ));
-                    },
-                    tileColor: Colors.green[700],
-                    title: Text(
-                      "${quran.getVerse(widget.indexsurah, index + 1, verseEndSymbol: true)}",
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              Center(
+                child: Container(
+                  width: double.infinity,
+                  color: Colors.orange[900],
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      "${quran.getSurahNameArabic(widget.indexsurah)}",
                       style: TextStyle(
                           fontFamily: 'arabicfont',
                           fontWeight: FontWeight.bold,
                           fontSize: 25,
                           color: Colors.white),
-                      textAlign: TextAlign.right,
+                      textAlign: TextAlign.center,
                     ),
-                  );
-                },
-                itemCount: quran.getVerseCount(widget.indexsurah),
+                  ),
+                ),
               ),
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text("Back"))
-          ],
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  separatorBuilder: (context, index) {
+                    return Divider(
+                      color: Colors.white,
+                      height: 3,
+                      thickness: 2,
+                    );
+                  },
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Surahs(
+                                indexsurah: index + 1,
+                              ),
+                            ));
+                      },
+                      tileColor: Colors.green[700],
+                      title: Text(
+                        "${quran.getVerse(widget.indexsurah, index + 1, verseEndSymbol: true)}",
+                        style: TextStyle(
+                            fontFamily: 'arabicfont',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                            color: Colors.white),
+                        textAlign: TextAlign.right,
+                      ),
+                    );
+                  },
+                  itemCount: quran.getVerseCount(widget.indexsurah),
+                ),
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text("Back"))
+            ],
+          ),
         ),
       ),
     );
