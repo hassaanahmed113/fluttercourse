@@ -1,16 +1,3 @@
 # musicifyapp
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![White Minimalist Motivational Outdoor Influencer Mobile Video (2)](https://github.com/HassaanAhmed60211/fluttercourse/assets/106430586/c7a849a1-d3bf-4f53-85c7-7705b36dc556)
