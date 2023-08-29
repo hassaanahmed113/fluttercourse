@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 class SecondScreen extends StatefulWidget {
@@ -19,40 +17,37 @@ class _SecondScreenState extends State<SecondScreen> {
             title: Text("HELLO"),
             bottom: TabBar(tabs: [Text("1"), Text("2"), Text("3")]),
           ),
-          body: TabBarView(
-              children: [FirstScreen(), ThiredScreen(), FourthScreen()]),
+          body: TabBarView(children: [fscreen(), ffscreen(), fffscreen()]),
         ));
   }
 }
 
-class FirstScreen extends StatelessWidget {
-  const FirstScreen({super.key});
+class fscreen extends StatelessWidget {
+  const fscreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.amber),
-              ),
-              onPressed: () {},
-              child: Text("Hello")),
-          OutlinedButton(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.orange)),
-              onPressed: () {},
-              child: Text("Hello")),
-          TextButton(onPressed: () {}, child: Text("Hello"))
+          Card(
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            shape:
+                CircleBorder(side: BorderSide(width: 1, color: Colors.green)),
+            child: Container(
+              height: 100,
+              width: 100,
+              color: Colors.red,
+            ),
+          )
         ],
       ),
     );
   }
 }
 
-class ThiredScreen extends StatelessWidget {
-  const ThiredScreen({super.key});
+class ffscreen extends StatelessWidget {
+  const ffscreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -60,8 +55,8 @@ class ThiredScreen extends StatelessWidget {
   }
 }
 
-class FourthScreen extends StatelessWidget {
-  const FourthScreen({super.key});
+class fffscreen extends StatelessWidget {
+  const fffscreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:musicifyapp/MainScreen.dart';
 
+import 'AllSong.dart';
+
 var images = [
   "assets/s1.jpg",
   "assets/s2.jpg",
@@ -304,13 +306,40 @@ class _HomeScreenState extends State<HomeScreen> {
                   const EdgeInsets.only(left: 10.0, top: 12.0, bottom: 5.0),
               child: Align(
                 alignment: Alignment.topLeft,
-                child: Text(
-                  "TOP LISTENING",
-                  style: TextStyle(
-                      fontSize: 26,
-                      color: Colors.white,
-                      fontFamily: GoogleFonts.secularOne().fontFamily,
-                      fontWeight: FontWeight.bold),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "TOP LISTENING",
+                      style: TextStyle(
+                          fontSize: 26,
+                          color: Colors.white,
+                          fontFamily: GoogleFonts.secularOne().fontFamily,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10.0),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => AllSong(),
+                              ));
+                        },
+                        child: Container(
+                          child: Text(
+                            "See all",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
+                              fontFamily: GoogleFonts.roboto().fontFamily,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
