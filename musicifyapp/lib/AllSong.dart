@@ -165,7 +165,8 @@ class _AllSongState extends State<AllSong> {
                                 builder: (context) => MainScreen(
                                     images2.elementAt(index),
                                     title2.elementAt(index),
-                                    subtitle2.elementAt(index)),
+                                    subtitle2.elementAt(index),
+                                    "assets/song.mp3"),
                               ));
                         },
                         child: Container(

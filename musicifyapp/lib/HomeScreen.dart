@@ -34,12 +34,23 @@ var subtitle = [
   "Ed Sheeran",
   "Justin Bieber",
   "Maroon 5",
-  "Maroon 5",
+  "Alan Walker",
   "Phil Collins",
   "Zayn Malik",
   "Ed Sheeran",
   "Camila Cabello",
   "Maroon 5"
+];
+
+var song = [
+  "assets/song1.mp3",
+  "assets/song2.mp3",
+  "assets/song3.mp3",
+  "assets/song4.mp3",
+  "assets/song5.mp3",
+  "assets/song6.mp3",
+  "assets/song7.mp3",
+  "assets/song8.mp3"
 ];
 
 var images1 = [
@@ -80,6 +91,12 @@ var subtitle1 = [
   "Maroon 5"
 ];
 
+var song1 = [
+  "assets/song10.mp3",
+  "assets/song2.mp3",
+  "assets/song12.mp3",
+];
+
 var images2 = [
   "assets/a4.jpeg",
   "assets/a5.jpg",
@@ -116,6 +133,13 @@ var subtitle2 = [
   "Ed Sheeran",
   "Camila Cabello",
   "Maroon 5"
+];
+
+var song2 = [
+  "assets/song11.mp3",
+  "assets/song9.mp3",
+  "assets/song10.mp3",
+  "assets/song2.mp3",
 ];
 
 class HomeScreen extends StatefulWidget {
@@ -168,7 +192,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   builder: (context) => MainScreen(
                                       images.elementAt(index),
                                       title.elementAt(index),
-                                      subtitle.elementAt(index)),
+                                      subtitle.elementAt(index),
+                                      song.elementAt(index)),
                                 ));
                           },
                           child: Container(
@@ -252,7 +277,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   builder: (context) => MainScreen(
                                       images1.elementAt(index),
                                       title1.elementAt(index),
-                                      subtitle1.elementAt(index)),
+                                      subtitle1.elementAt(index),
+                                      song1.elementAt(index)),
                                 ));
                           },
                           child: Container(
@@ -365,7 +391,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 builder: (context) => MainScreen(
                                     images2.elementAt(index),
                                     title2.elementAt(index),
-                                    subtitle2.elementAt(index)),
+                                    subtitle2.elementAt(index),
+                                    song2.elementAt(index)),
                               ));
                         },
                         child: Container(

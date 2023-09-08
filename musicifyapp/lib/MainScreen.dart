@@ -1,15 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:just_audio/just_audio.dart';
 
 class MainScreen extends StatefulWidget {
-  var image, title, subtitle;
-  MainScreen(this.image, this.title, this.subtitle, {super.key});
+  var image, title, subtitle, song;
+  MainScreen(this.image, this.title, this.subtitle, this.song, {super.key});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
+  AudioPlayer audioPlayer = AudioPlayer();
+  Image playpauseButton = Image.asset("assets/play.png");
+  bool isplaying = false;
+
+  Future<void> toggleButton() async {
+    try {
+      await audioPlayer.setAsset(widget.song);
+      if (isplaying) {
+        audioPlayer.play();
+        setState(() {
+          playpauseButton = Image.asset("assets/pause.png");
+          isplaying = false;
+        });
+      } else {
+        audioPlayer.pause();
+        setState(() {
+          playpauseButton = Image.asset("assets/play.png");
+          isplaying = true;
+        });
+      }
+    } catch (e) {
+      print(" error: $e");
+    }
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    audioPlayer.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,21 +50,16 @@ class _MainScreenState extends State<MainScreen> {
         children: [
           Align(
               alignment: Alignment.center,
-              child: Container(
-                height: double.infinity,
-                width: double.infinity,
-                child: Image.asset(
-                  "assets/3232-02.png",
-                  fit: BoxFit.fitHeight,
-                ),
+              child: Image.asset(
+                "assets/dsfsfsf-02.png",
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                fit: BoxFit.cover,
               )),
-          Align(
-              alignment: Alignment.bottomCenter,
-              child: Image.asset("assets/23323-02.png")),
 
           //IMAGE
           Positioned(
-            top: 160,
+            top: 140,
             left: 40,
             child: Container(
               height: 300,
@@ -54,7 +82,7 @@ class _MainScreenState extends State<MainScreen> {
 
           //TITLE
           Padding(
-            padding: const EdgeInsets.only(top: 500.0),
+            padding: const EdgeInsets.only(top: 460.0),
             child: Align(
               alignment: Alignment.topCenter,
               child: Text(
@@ -70,7 +98,7 @@ class _MainScreenState extends State<MainScreen> {
 
 //SUBTITLE
           Padding(
-            padding: const EdgeInsets.only(top: 560.0),
+            padding: const EdgeInsets.only(top: 510.0),
             child: Align(
               alignment: Alignment.topCenter,
               child: Text(
@@ -110,6 +138,16 @@ class _MainScreenState extends State<MainScreen> {
                     Icons.arrow_back_ios_new_rounded,
                     color: Colors.white,
                   ),
+                )),
+          ),
+          //SUBTITLE
+          Padding(
+            padding: const EdgeInsets.only(top: 678.0, left: 3.0),
+            child: Align(
+                alignment: Alignment.topCenter,
+                child: InkWell(
+                  onTap: toggleButton,
+                  child: Container(height: 30, child: playpauseButton),
                 )),
           ),
         ],
