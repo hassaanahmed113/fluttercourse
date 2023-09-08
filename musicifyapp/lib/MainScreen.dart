@@ -19,15 +19,15 @@ class _MainScreenState extends State<MainScreen> {
     try {
       await audioPlayer.setAsset(widget.song);
       if (isplaying) {
-        audioPlayer.play();
-        setState(() {
-          playpauseButton = Image.asset("assets/pause.png");
-          isplaying = false;
-        });
-      } else {
         audioPlayer.pause();
         setState(() {
           playpauseButton = Image.asset("assets/play.png");
+          isplaying = false;
+        });
+      } else {
+        audioPlayer.play();
+        setState(() {
+          playpauseButton = Image.asset("assets/pause.png");
           isplaying = true;
         });
       }
