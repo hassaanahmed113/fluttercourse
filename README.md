@@ -40,3 +40,7 @@ dispose<br />
 setstate<br />
 DatePicker<br />
 TimerPicker<br />
+showDialog -> content for textfield ,actions for buttons<br />
+FloatingActionButton<br />
+GestureDetector<br />
+onChanged Textfield<br />
