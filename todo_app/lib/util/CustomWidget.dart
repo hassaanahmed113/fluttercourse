@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CustomWidget {
   var output;
-  Widget Textwid(data, colors, fontsize, fontfamily, fontweight) {
+  Widget Textwid(data, colors, double fontsize, fontfamily, fontweight) {
     return Text(
       data,
       style: TextStyle(

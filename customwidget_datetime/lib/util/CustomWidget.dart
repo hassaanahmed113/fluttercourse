@@ -6,7 +6,7 @@ class CustomWidget {
     return Padding(child: child, padding: EdgeInsets.only(top: top));
   }
 
-  Widget padding(horizontal, vertical, child) {
+  Widget padding(double horizontal, double vertical, child) {
     return Padding(
         child: child,
         padding:

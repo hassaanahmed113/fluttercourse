@@ -1,6 +1,3 @@
-import 'dart:async';
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:todo_app/util/CustomWidget.dart';
@@ -14,6 +11,7 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   CustomWidget customWidget = CustomWidget();
+  var editcontroller = TextEditingController();
   List<dynamic> data = [];
   var output1;
   var datab;
@@ -125,6 +123,7 @@ class HomeScreenState extends State<HomeScreen> {
                           children: [
                             GestureDetector(
                               onTap: () {
+                                editcontroller.text = data[index].toString();
                                 showDialog(
                                   context: context,
                                   builder: (context) {
@@ -136,6 +135,7 @@ class HomeScreenState extends State<HomeScreen> {
                                           GoogleFonts.fjallaOne().fontFamily,
                                           FontWeight.normal),
                                       content: TextField(
+                                          controller: editcontroller,
                                           onChanged: (value) {
                                             output1 = value;
                                           },
