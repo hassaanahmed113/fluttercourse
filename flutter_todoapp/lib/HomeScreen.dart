@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
               .replaceRange(index, index + 1, [datecontroller.text.toString()]);
         }
         setState(() {});
-        Navigator.of(context).pop(); // Close the dialog
+        Navigator.of(context).pop();
       },
     );
   }
