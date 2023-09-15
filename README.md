@@ -44,3 +44,5 @@ showDialog -> content for textfield ,actions for buttons<br />
 FloatingActionButton<br />
 GestureDetector<br />
 onChanged Textfield<br />
+bmicalculator<br />
+simplecalculator<br />
