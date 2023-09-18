@@ -175,266 +175,233 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             customWidget.boxheight(40),
                             // grid 1 C % ÷ ×
-                            customWidget.gridData(
-                              () {
-                                setState(() {
-                                  customWidget.textcontroller.clear();
-                                });
-                              },
-                              () {
-                                //x²
-                                if (customWidget
-                                    .textcontroller.text.isNotEmpty) {
-                                  setState(() {
-                                    String expression =
-                                        customWidget.textcontroller.text;
-                                    Parser parser = Parser();
-                                    Expression exp = parser.parse(expression);
-                                    ContextModel contextModel = ContextModel();
-                                    num eval = exp.evaluate(
-                                        EvaluationType.REAL, contextModel);
-                                    num dataa = eval * eval;
-                                    if (eval % 1 == 0) {
-                                      result = dataa.toInt().toString();
-                                    } else {
-                                      result = dataa.toStringAsFixed(1);
-                                    }
-                                    calc.add(customWidget.textcontroller.text);
-                                    resultcalc.add(result);
-                                    print(result);
-                                  });
-                                }
-                              },
-                              () {
-                                //÷
-                                setState(() {
-                                  customWidget.textcontroller.text.isEmpty
-                                      ? customWidget.textcontroller.text = ""
-                                      : customWidget.textcontroller.text =
-                                          "${customWidget.textcontroller.text}/";
-                                });
-                              },
-                              () {
-                                //x
-                                setState(() {
-                                  customWidget.textcontroller.text.isEmpty
-                                      ? customWidget.textcontroller.text = ""
-                                      : customWidget.textcontroller.text =
-                                          "${customWidget.textcontroller.text}*";
-                                });
-                              },
-                              () {
-                                //7
-                                setState(() {
-                                  customWidget
-                                      .textcontroller.text = customWidget
-                                              .textcontroller.text ==
-                                          null
-                                      ? "7"
-                                      : "${customWidget.textcontroller.text}7";
-                                });
-                              },
-                              () {
-                                //8
-                                setState(() {
-                                  customWidget
-                                      .textcontroller.text = customWidget
-                                              .textcontroller.text ==
-                                          null
-                                      ? "8"
-                                      : "${customWidget.textcontroller.text}8";
-                                });
-                              },
-                              () {
-                                //9
-                                setState(() {
-                                  customWidget
-                                      .textcontroller.text = customWidget
-                                              .textcontroller.text ==
-                                          null
-                                      ? "9"
-                                      : "${customWidget.textcontroller.text}9";
-                                });
-                              },
-                              () {
-                                //minus
-                                setState(() {
-                                  customWidget.textcontroller.text.isEmpty
-                                      ? customWidget.textcontroller.text = ""
-                                      : customWidget.textcontroller.text =
-                                          "${customWidget.textcontroller.text}-";
-                                });
-                              },
-                              () {
-                                //4
-                                setState(() {
-                                  customWidget
-                                      .textcontroller.text = customWidget
-                                              .textcontroller.text ==
-                                          null
-                                      ? "4"
-                                      : "${customWidget.textcontroller.text}4";
-                                });
-                              },
-                              () {
-                                //5
-                                setState(() {
-                                  customWidget
-                                      .textcontroller.text = customWidget
-                                              .textcontroller.text ==
-                                          null
-                                      ? "5"
-                                      : "${customWidget.textcontroller.text}5";
-                                });
-                              },
-                              () {
-                                //6
-                                setState(() {
-                                  customWidget
-                                      .textcontroller.text = customWidget
-                                              .textcontroller.text ==
-                                          null
-                                      ? "6"
-                                      : "${customWidget.textcontroller.text}6";
-                                });
-                              },
-                              () {
-                                //plus
-                                setState(() {
-                                  customWidget.textcontroller.text.isEmpty
-                                      ? customWidget.textcontroller.text = ""
-                                      : customWidget.textcontroller.text =
-                                          "${customWidget.textcontroller.text}+";
-                                });
-                              },
-                              () {
-                                //1
-                                setState(() {
-                                  customWidget
-                                      .textcontroller.text = customWidget
-                                              .textcontroller.text ==
-                                          null
-                                      ? "1"
-                                      : "${customWidget.textcontroller.text}1";
-                                });
-                              },
-                              () {
-                                //2
-                                setState(() {
-                                  customWidget
-                                      .textcontroller.text = customWidget
-                                              .textcontroller.text ==
-                                          null
-                                      ? "2"
-                                      : "${customWidget.textcontroller.text}2";
-                                });
-                              },
-                              () {
-                                //3
-                                setState(() {
-                                  customWidget
-                                      .textcontroller.text = customWidget
-                                              .textcontroller.text ==
-                                          null
-                                      ? "3"
-                                      : "${customWidget.textcontroller.text}3";
-                                });
-                              },
-                              () {
-                                //functionfactorial
-                                if (customWidget
-                                    .textcontroller.text.isNotEmpty) {
-                                  setState(() {
-                                    String expression =
-                                        customWidget.textcontroller.text;
-                                    Parser parser = Parser();
-                                    Expression exp = parser.parse(expression);
-                                    ContextModel contextModel = ContextModel();
-                                    num eval = exp.evaluate(
-                                        EvaluationType.REAL, contextModel);
 
-                                    for (num i = eval - 1; i > 0; i--) {
-                                      eval *= i;
-                                    }
-                                    if (eval % 1 == 0) {
-                                      result = eval.toInt().toString();
-                                    } else {
-                                      result = eval.toStringAsFixed(1);
-                                    }
-                                    calc.add(customWidget.textcontroller.text);
-                                    resultcalc.add(result);
-                                    print(result);
-                                  });
-                                }
-                              },
-                              () {
-                                //0
+                            customWidget.gridData1(() {
+                              setState(() {
+                                customWidget.textcontroller.clear();
+                              });
+                            }, () {
+                              //x²
+                              if (customWidget.textcontroller.text.isNotEmpty) {
                                 setState(() {
-                                  customWidget.textcontroller.text.isEmpty
-                                      ? customWidget.textcontroller.text = ""
-                                      : customWidget.textcontroller.text =
-                                          "${customWidget.textcontroller.text}0";
+                                  String expression =
+                                      customWidget.textcontroller.text;
+                                  Parser parser = Parser();
+                                  Expression exp = parser.parse(expression);
+                                  ContextModel contextModel = ContextModel();
+                                  num eval = exp.evaluate(
+                                      EvaluationType.REAL, contextModel);
+                                  num dataa = eval * eval;
+                                  if (eval % 1 == 0) {
+                                    result = dataa.toInt().toString();
+                                  } else {
+                                    result = dataa.toStringAsFixed(1);
+                                  }
+                                  calc.add(customWidget.textcontroller.text);
+                                  resultcalc.add(result);
+                                  print(result);
                                 });
-                              },
-                              () {
-                                //dot
+                              }
+                            }, () {
+                              //÷
+                              setState(() {
+                                customWidget.textcontroller.text.isEmpty
+                                    ? customWidget.textcontroller.text = ""
+                                    : customWidget.textcontroller.text =
+                                        "${customWidget.textcontroller.text}/";
+                              });
+                            }, () {
+                              //x
+                              setState(() {
+                                customWidget.textcontroller.text.isEmpty
+                                    ? customWidget.textcontroller.text = ""
+                                    : customWidget.textcontroller.text =
+                                        "${customWidget.textcontroller.text}*";
+                              });
+                            }, () {
+                              //7
+                              setState(() {
+                                customWidget.textcontroller.text = customWidget
+                                            .textcontroller.text ==
+                                        null
+                                    ? "7"
+                                    : "${customWidget.textcontroller.text}7";
+                              });
+                            }, () {
+                              //8
+                              setState(() {
+                                customWidget.textcontroller.text = customWidget
+                                            .textcontroller.text ==
+                                        null
+                                    ? "8"
+                                    : "${customWidget.textcontroller.text}8";
+                              });
+                            }, () {
+                              //9
+                              setState(() {
+                                customWidget.textcontroller.text = customWidget
+                                            .textcontroller.text ==
+                                        null
+                                    ? "9"
+                                    : "${customWidget.textcontroller.text}9";
+                              });
+                            }, () {
+                              //minus
+                              setState(() {
+                                customWidget.textcontroller.text.isEmpty
+                                    ? customWidget.textcontroller.text = ""
+                                    : customWidget.textcontroller.text =
+                                        "${customWidget.textcontroller.text}-";
+                              });
+                            }, () {
+                              //4
+                              setState(() {
+                                customWidget.textcontroller.text = customWidget
+                                            .textcontroller.text ==
+                                        null
+                                    ? "4"
+                                    : "${customWidget.textcontroller.text}4";
+                              });
+                            }, () {
+                              //5
+                              setState(() {
+                                customWidget.textcontroller.text = customWidget
+                                            .textcontroller.text ==
+                                        null
+                                    ? "5"
+                                    : "${customWidget.textcontroller.text}5";
+                              });
+                            }, () {
+                              //6
+                              setState(() {
+                                customWidget.textcontroller.text = customWidget
+                                            .textcontroller.text ==
+                                        null
+                                    ? "6"
+                                    : "${customWidget.textcontroller.text}6";
+                              });
+                            }, () {
+                              //plus
+                              setState(() {
+                                customWidget.textcontroller.text.isEmpty
+                                    ? customWidget.textcontroller.text = ""
+                                    : customWidget.textcontroller.text =
+                                        "${customWidget.textcontroller.text}+";
+                              });
+                            }, () {
+                              //1
+                              setState(() {
+                                customWidget.textcontroller.text = customWidget
+                                            .textcontroller.text ==
+                                        null
+                                    ? "1"
+                                    : "${customWidget.textcontroller.text}1";
+                              });
+                            }, () {
+                              //2
+                              setState(() {
+                                customWidget.textcontroller.text = customWidget
+                                            .textcontroller.text ==
+                                        null
+                                    ? "2"
+                                    : "${customWidget.textcontroller.text}2";
+                              });
+                            }, () {
+                              //3
+                              setState(() {
+                                customWidget.textcontroller.text = customWidget
+                                            .textcontroller.text ==
+                                        null
+                                    ? "3"
+                                    : "${customWidget.textcontroller.text}3";
+                              });
+                            }, () {
+                              //functionfactorial
+                              if (customWidget.textcontroller.text.isNotEmpty) {
                                 setState(() {
-                                  customWidget.textcontroller.text.isEmpty
-                                      ? customWidget.textcontroller.text = ""
-                                      : customWidget.textcontroller.text =
-                                          "${customWidget.textcontroller.text}.";
+                                  String expression =
+                                      customWidget.textcontroller.text;
+                                  Parser parser = Parser();
+                                  Expression exp = parser.parse(expression);
+                                  ContextModel contextModel = ContextModel();
+                                  num eval = exp.evaluate(
+                                      EvaluationType.REAL, contextModel);
+
+                                  for (num i = eval - 1; i > 0; i--) {
+                                    eval *= i;
+                                  }
+                                  if (eval % 1 == 0) {
+                                    result = eval.toInt().toString();
+                                  } else {
+                                    result = eval.toStringAsFixed(1);
+                                  }
+                                  calc.add(customWidget.textcontroller.text);
+                                  resultcalc.add(result);
+                                  print(result);
                                 });
-                              },
-                              () {
-                                //functionsqrt
-                                if (customWidget
-                                    .textcontroller.text.isNotEmpty) {
-                                  setState(() {
-                                    String expression =
-                                        customWidget.textcontroller.text;
-                                    Parser parser = Parser();
-                                    Expression exp = parser.parse(expression);
-                                    ContextModel contextModel = ContextModel();
-                                    num eval = exp.evaluate(
-                                        EvaluationType.REAL, contextModel);
+                              }
+                            }, () {
+                              //0
+                              setState(() {
+                                customWidget.textcontroller.text.isEmpty
+                                    ? customWidget.textcontroller.text = ""
+                                    : customWidget.textcontroller.text =
+                                        "${customWidget.textcontroller.text}0";
+                              });
+                            }, () {
+                              //dot
+                              setState(() {
+                                customWidget.textcontroller.text.isEmpty
+                                    ? customWidget.textcontroller.text = ""
+                                    : customWidget.textcontroller.text =
+                                        "${customWidget.textcontroller.text}.";
+                              });
+                            }, () {
+                              //functionsqrt
+                              if (customWidget.textcontroller.text.isNotEmpty) {
+                                setState(() {
+                                  String expression =
+                                      customWidget.textcontroller.text;
+                                  Parser parser = Parser();
+                                  Expression exp = parser.parse(expression);
+                                  ContextModel contextModel = ContextModel();
+                                  num eval = exp.evaluate(
+                                      EvaluationType.REAL, contextModel);
 
-                                    double exp1 = sqrt(eval);
-                                    if (exp1 % 1 == 0) {
-                                      result = exp1.toInt().toString();
-                                    } else {
-                                      result = exp1.toStringAsFixed(1);
-                                    }
-                                    calc.add(customWidget.textcontroller.text);
-                                    resultcalc.add(result);
-                                    print(result);
-                                  });
-                                }
-                              },
-                              () {
-                                //functionequaltoclick
-                                if (customWidget
-                                    .textcontroller.text.isNotEmpty) {
-                                  setState(() {
-                                    String expression =
-                                        customWidget.textcontroller.text;
-                                    Parser parser = Parser();
-                                    Expression exp = parser.parse(expression);
-                                    ContextModel contextModel = ContextModel();
-                                    num eval = exp.evaluate(
-                                        EvaluationType.REAL, contextModel);
-                                    if (eval % 1 == 0) {
-                                      result = eval.toInt().toString();
-                                    } else {
-                                      result = eval.toStringAsFixed(1);
-                                    }
-                                    calc.add(customWidget.textcontroller.text);
-                                    resultcalc.add(result);
+                                  double exp1 = sqrt(eval);
+                                  if (exp1 % 1 == 0) {
+                                    result = exp1.toInt().toString();
+                                  } else {
+                                    result = exp1.toStringAsFixed(1);
+                                  }
+                                  calc.add(customWidget.textcontroller.text);
+                                  resultcalc.add(result);
+                                  print(result);
+                                });
+                              }
+                            }, () {
+                              //functionequaltoclick
+                              if (customWidget.textcontroller.text.isNotEmpty) {
+                                setState(() {
+                                  String expression =
+                                      customWidget.textcontroller.text;
+                                  Parser parser = Parser();
+                                  Expression exp = parser.parse(expression);
+                                  ContextModel contextModel = ContextModel();
+                                  num eval = exp.evaluate(
+                                      EvaluationType.REAL, contextModel);
+                                  if (eval % 1 == 0) {
+                                    result = eval.toInt().toString();
+                                  } else {
+                                    result = eval.toStringAsFixed(1);
+                                  }
+                                  calc.add(customWidget.textcontroller.text);
+                                  resultcalc.add(result);
 
-                                    print(result);
-                                  });
-                                }
-                              },
-                            ),
+                                  print(result);
+                                });
+                              }
+                            }),
                           ],
                         ),
                       ))),

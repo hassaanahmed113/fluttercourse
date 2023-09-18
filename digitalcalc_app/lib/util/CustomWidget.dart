@@ -44,6 +44,20 @@ class CustomWidget {
     );
   }
 
+  Widget containerWid2(bordervalue, colorbox, data, colorstext,
+      double fontsizetext, fontweighttext, fontfamilytext) {
+    return Container(
+      decoration: BoxDecoration(
+        color: colorbox,
+        borderRadius: bordervalue,
+      ),
+      child: Center(
+        child: textWid(
+            data, colorstext, fontsizetext, fontweighttext, fontfamilytext),
+      ),
+    );
+  }
+
   Widget containerWid1(
       double height, double width, bordervalue, colorbox, image) {
     return Container(
@@ -145,7 +159,8 @@ class CustomWidget {
       ontap0,
       ontapdot,
       ontapfunctionsqrt,
-      ontapfunction) {
+      ontapfunction,
+      context) {
     return Expanded(
       child: GridView.count(
         padding: EdgeInsets.only(bottom: 20),
@@ -156,8 +171,8 @@ class CustomWidget {
           inkwellWid(
             ontapc,
             containerWid(
-                90,
-                83,
+                20,
+                20,
                 BorderRadius.all(Radius.circular(20)),
                 Color(0xff363035),
                 "C",
@@ -414,6 +429,301 @@ class CustomWidget {
                 GoogleFonts.roboto().fontFamily),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget gridData1(
+    ontapc,
+    ontapsq,
+    ontapdiv,
+    ontapmul,
+    ontap7,
+    ontap8,
+    ontap9,
+    ontapminus,
+    ontap4,
+    ontap5,
+    ontap6,
+    ontapadd,
+    ontap1,
+    ontap2,
+    ontap3,
+    ontapfunctionx,
+    ontap0,
+    ontapdot,
+    ontapfunctionsqrt,
+    ontapfunction,
+  ) {
+    return Expanded(
+      child: GridView.builder(
+        padding: EdgeInsets.only(bottom: 20),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          mainAxisExtent: 55,
+          crossAxisCount: 4, // Keep this fixed
+          mainAxisSpacing: 15,
+          crossAxisSpacing: 10,
+        ),
+        itemBuilder: (context, index) {
+          if (index == 0) {
+            return inkwellWid(
+              ontapc,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff363035),
+                  "C",
+                  Color(0xffA5A5A5),
+                  28,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 1) {
+            return inkwellWid(
+              ontapsq,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff740076),
+                  "x²",
+                  Colors.white,
+                  30,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 2) {
+            return inkwellWid(
+              ontapdiv,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff740076),
+                  "÷",
+                  Colors.white,
+                  30,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 3) {
+            // Return the next button with adjusted size
+            return inkwellWid(
+              ontapmul,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff740076),
+                  "×",
+                  Colors.white,
+                  30,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 4) {
+            // Return the next button with adjusted size
+            return inkwellWid(
+              ontap7,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff363035),
+                  "7",
+                  Color(0xff10B7FF),
+                  28,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 5) {
+            // Return the next button with adjusted size
+            return inkwellWid(
+              ontap8,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff363035),
+                  "8",
+                  Color(0xff10B7FF),
+                  30,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 6) {
+            // Return the next button with adjusted size
+            return inkwellWid(
+              ontap9,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff363035),
+                  "9",
+                  Color(0xff10B7FF),
+                  30,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 7) {
+            // Return the next button with adjusted size
+            return inkwellWid(
+              ontapminus,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff740076),
+                  "-",
+                  Colors.white,
+                  35,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 8) {
+            // Return the next button with adjusted size
+            return inkwellWid(
+              ontap4,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff363035),
+                  "4",
+                  Color(0xff10B7FF),
+                  28,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 9) {
+            // Return the next button with adjusted size
+            return inkwellWid(
+              ontap5,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff363035),
+                  "5",
+                  Color(0xff10B7FF),
+                  30,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 10) {
+            // Return the next button with adjusted size
+            return inkwellWid(
+              ontap6,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff363035),
+                  "6",
+                  Color(0xff10B7FF),
+                  30,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 11) {
+            // Return the next button with adjusted size
+            return inkwellWid(
+              ontapadd,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff740076),
+                  "+",
+                  Colors.white,
+                  30,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 12) {
+            // Return the next button with adjusted size
+            return inkwellWid(
+              ontap1,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff363035),
+                  "1",
+                  Color(0xff10B7FF),
+                  28,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 13) {
+            // Return the next button with adjusted size
+            return inkwellWid(
+              ontap2,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff363035),
+                  "2",
+                  Color(0xff10B7FF),
+                  30,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 14) {
+            // Return the next button with adjusted size
+            return inkwellWid(
+              ontap3,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff363035),
+                  "3",
+                  Color(0xff10B7FF),
+                  30,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 15) {
+            // Return the next button with adjusted size
+            return inkwellWid(
+              ontapfunctionx,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff740076),
+                  "x!",
+                  Colors.white,
+                  30,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 16) {
+            // Return the next button with adjusted size
+            return inkwellWid(
+              ontap0,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff363035),
+                  "0",
+                  Color(0xff10B7FF),
+                  28,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 17) {
+            // Return the next button with adjusted size
+            return inkwellWid(
+              ontapdot,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff363035),
+                  ".",
+                  Color(0xff10B7FF),
+                  35,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 18) {
+            // Return the next button with adjusted size
+            return inkwellWid(
+              ontapfunctionsqrt,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff363035),
+                  "√x",
+                  Color(0xff10B7FF),
+                  30,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          } else if (index == 19) {
+            // Return the next button with adjusted size
+            return inkwellWid(
+              ontapfunction,
+              containerWid2(
+                  BorderRadius.all(Radius.circular(20)),
+                  Color(0xff740076),
+                  "=",
+                  Colors.white,
+                  30,
+                  FontWeight.bold,
+                  GoogleFonts.roboto().fontFamily),
+            );
+          }
+        },
       ),
     );
   }
