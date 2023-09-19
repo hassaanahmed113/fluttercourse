@@ -5,6 +5,7 @@ import 'package:Digicalc_App/util/CustomWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:math_expressions/math_expressions.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,12 +22,55 @@ class _HomeScreenState extends State<HomeScreen> {
   var data = "";
   late Future<bool> _imageLoaded;
   late ImageProvider _backgroundImage;
+  int insertionIndex = 0;
 
   @override
   void initState() {
     super.initState();
     _backgroundImage = AssetImage("assets/Untitled design.png");
     _imageLoaded = _loadImage();
+    _loadData();
+  }
+
+  // Load data from local storage
+  Future<void> _loadData() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      calc = (prefs.getStringList('calc') ?? []).cast<dynamic>();
+      resultcalc = (prefs.getStringList('resultcalc') ?? []).cast<dynamic>();
+    });
+  }
+
+  // Save data to local storage
+  Future<void> _saveData() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setStringList('calc', calc.map((item) => item.toString()).toList());
+    prefs.setStringList(
+        'resultcalc', resultcalc.map((item) => item.toString()).toList());
+  }
+
+  void _clearData() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+    setState(() {
+      calc.clear();
+      resultcalc.clear();
+    });
+  }
+
+  String formatSciNotation(num value) {
+    String valueStr = value.toString();
+    if (valueStr.contains("e")) {
+      List<String> parts = valueStr.split("e");
+      double significand = double.parse(parts[0]);
+      int exponent = int.parse(parts[1]);
+      return "${significand.toStringAsFixed(1)}e+$exponent";
+    } else if (value is double) {
+      int intValue = value.toInt();
+      return (value == intValue) ? intValue.toString() : value.toString();
+    } else {
+      return value.toString();
+    }
   }
 
   Future<bool> _loadImage() async {
@@ -69,12 +113,33 @@ class _HomeScreenState extends State<HomeScreen> {
                         Column(
                           children: [
                             customWidget.alignmentWid(
-                                Alignment.topLeft,
-                                customWidget.listResult(
-                                    calc, resultcalc, calc.length)),
-                            customWidget.boxheight(10),
+                              Alignment.topLeft,
+                              customWidget.listResult(
+                                calc,
+                                resultcalc,
+                                calc.length,
+                              ),
+                            ),
+                            customWidget.alignmentWid(
+                              Alignment.topRight,
+                              customWidget.paddingWid(
+                                EdgeInsets.only(right: 10),
+                                TextButton(
+                                    onPressed: () {
+                                      _clearData();
+                                    },
+                                    child: customWidget.textWid(
+                                        "Clear History",
+                                        Colors.white,
+                                        15,
+                                        FontWeight.bold,
+                                        GoogleFonts.roboto().fontFamily)),
+                              ),
+                            ),
+
+                            customWidget.boxheight(5),
                             customWidget.fieldtextWid(),
-                            customWidget.boxheight(20),
+                            customWidget.boxheight(15),
                             customWidget.alignmentWid(
                               Alignment.topRight,
                               customWidget.paddingWid(
@@ -173,7 +238,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                             ),
-                            customWidget.boxheight(40),
+                            customWidget.boxheight(30),
                             // grid 1 C % ÷ ×
 
                             customWidget.gridData1(() {
@@ -199,6 +264,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   }
                                   calc.add(customWidget.textcontroller.text);
                                   resultcalc.add(result);
+                                  _saveData();
                                   print(result);
                                 });
                               }
@@ -330,13 +396,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                   for (num i = eval - 1; i > 0; i--) {
                                     eval *= i;
                                   }
-                                  if (eval % 1 == 0) {
-                                    result = eval.toInt().toString();
-                                  } else {
-                                    result = eval.toStringAsFixed(1);
-                                  }
+                                  result = formatSciNotation(eval);
                                   calc.add(customWidget.textcontroller.text);
                                   resultcalc.add(result);
+                                  _saveData();
                                   print(result);
                                 });
                               }
@@ -376,6 +439,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   }
                                   calc.add(customWidget.textcontroller.text);
                                   resultcalc.add(result);
+                                  _saveData();
                                   print(result);
                                 });
                               }
@@ -395,8 +459,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                   } else {
                                     result = eval.toStringAsFixed(1);
                                   }
+
                                   calc.add(customWidget.textcontroller.text);
                                   resultcalc.add(result);
+                                  _saveData();
 
                                   print(result);
                                 });

@@ -109,7 +109,7 @@ class CustomWidget {
 
   Widget listResult(calc, resultcalc, length) {
     return Container(
-      height: 140,
+      height: 150,
       child: ListView.builder(
         reverse: true,
         itemBuilder: (context, index) {
