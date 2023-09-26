@@ -1088,26 +1088,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                   }
                                 }, () {
                                   //functionepowerx
-                                  if (customWidget
-                                      .textcontroller.text.isNotEmpty) {
-                                    setState(() {
-                                      String expression =
-                                          "e^${customWidget.textcontroller.text}";
-                                      Parser parser = Parser();
-                                      Expression exp = parser.parse(expression);
-                                      ContextModel contextModel =
-                                          ContextModel();
-                                      double eval = exp.evaluate(
-                                          EvaluationType.REAL, contextModel);
-
-                                      result = eval.toStringAsFixed(3);
-                                      calc.add(
-                                          customWidget.textcontroller.text);
-                                      resultcalc.add(result);
-                                      _saveData();
-                                      print(result);
-                                    });
-                                  }
+                                  setState(() {
+                                    customWidget.textcontroller.text.isEmpty
+                                        ? customWidget.textcontroller.text =
+                                            "e^("
+                                        : customWidget.textcontroller.text =
+                                            "${customWidget.textcontroller.text}e^(";
+                                  });
                                 }, () {
                                   setState(() {
                                     customWidget.textcontroller.text.isEmpty
