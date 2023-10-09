@@ -1,16 +1,5 @@
 # listwheelscrollview_maplist
 
-A new Flutter project.
+![Untitled design](https://github.com/HassaanAhmed60211/fluttercourse/assets/106430586/275f4f33-5289-40d2-a6dc-e9ac32f7f878)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
