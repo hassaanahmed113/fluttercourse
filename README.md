@@ -63,3 +63,5 @@ maplist <br />
 https://fluttergems.dev/ <br />
 RestApi using futurebuilder <br />
 Provider <br />
+RestApi with another method <br />
+QuranApp using Api <br />
