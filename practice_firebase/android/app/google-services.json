@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "687104273888",
+    "project_id": "fir-checkapp-be193",
+    "storage_bucket": "fir-checkapp-be193.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687104273888:android:f0abd164ef8e2574ee4f85",
+        "android_client_info": {
+          "package_name": "com.example.practice_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDMBZ8AnOg6RjvNkbybuV9OHvShJmk42M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
