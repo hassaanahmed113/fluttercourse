@@ -5,7 +5,6 @@ class FirebaseOperation {
   Future<void> addItem(Item item) async {
     CollectionReference items = FirebaseFirestore.instance.collection('items');
     try {
-      // Use the 'set' method to set the document with the same ID as the item's 'id'.
       await items.doc(item.id).set(item.toMap());
       print('Item added successfully');
     } catch (e) {

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase/Login.dart';
+import 'package:flutter_firebase/sendata.dart';
 import 'package:flutter_firebase/services/firebase_operation.dart';
 
 class Home extends StatefulWidget {
@@ -92,7 +93,16 @@ class _HomeState extends State<Home> {
                 ),
               );
             },
-          )
+          ),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SendData(),
+                    ));
+              },
+              child: Text("send data"))
         ],
       ),
     );
